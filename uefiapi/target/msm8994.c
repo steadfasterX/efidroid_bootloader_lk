@@ -61,5 +61,9 @@ void* uefiapi_mmap_add_platform_mappings(void *pdata, lkapi_mmap_add_cb_t cb)
                       LKAPI_MEMORYATTR_DEVICE, 0, LKAPI_MMAP_RANGEFLAG_UNUSED|LKAPI_MMAP_RANGEFLAG_DRAM);
 #endif
 
+    // TZ
+    pdata = cb(pdata, 0x06d00000, 1*MB, LKAPI_MMAP_RANGEFLAG_RESERVED,
+                      LKAPI_MEMORYATTR_DEVICE, 0, LKAPI_MMAP_RANGEFLAG_UNUSED|LKAPI_MMAP_RANGEFLAG_DRAM);
+
     return pdata;
 }
